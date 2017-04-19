@@ -8,7 +8,7 @@ class nginx(
   String $config_group                 = $::nginx::params::config_group,
   String $config_conf                  = $::nginx::params::config_conf,
   String $config_log_dir               = $::nginx::params::config_log_dir,
-  String $config_pid_dir               = $::nginx::params::config_pid_dir,
+  String $config_pid_file              = $::nginx::params::config_pid_file,
   Optional[String] $config_vdir_enable = $::nginx::params::config_vdir_enable,
   String $service_name                 = $::nginx::params::service_name,
   String $service_ensure               = $::nginx::params::service_ensure,

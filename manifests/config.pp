@@ -6,7 +6,7 @@ class nginx::config(
   String $group                 = $::nginx::config_group,
   String $conf                  = $::nginx::config_conf,
   String $log_dir               = $::nginx::config_log_dir,
-  String $pid_dir               = $::nginx::config_pid_dir,
+  String $pid_file              = $::nginx::config_pid_file,
   Optional[String] $vdir_enable = $::nginx::config_vdir_enable,
   String $process_user          = $::nginx::config_process_user,
   String $docroot               = $::nginx::docroot,
