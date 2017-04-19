@@ -4,7 +4,7 @@ class nginx::config(
   String $mode                  = $::nginx::config_mode,
   String $owner                 = $::nginx::config_owner,
   String $group                 = $::nginx::config_group,
-  String $conf                  = $::nginx::config_conf,
+  String $confd                 = $::nginx::config_confd,
   String $log_dir               = $::nginx::config_log_dir,
   String $pid_file		= $::nginx::config_pid_file,
   Optional[String] $vdir_enable = $::nginx::config_vdir_enable,
@@ -12,9 +12,9 @@ class nginx::config(
   String $docroot               = $::nginx::docroot,
 ) {
 
-  file {'nginx_conf': 
+  file { 'nginx.conf': 
     ensure => $ensure,
-    path   => "$config_dir/nginx.conf",
+    path   => "${config_dir}/nginx.conf",
     mode   => $mode,
     owner  => $owner,
     group  => $group,
@@ -29,7 +29,7 @@ class nginx::config(
   file { $docroot:
     ensure  => directory,
     recurse => true,
-    mode    => $mode,
+    mode    => '0775',
     owner   => $owner,
     group   => $group,
   }
