@@ -15,7 +15,7 @@ define nginx::vhost(
 
   file { "${vhost_dir}/${priority}-${name}.conf":
     ensure => file, 
-    content => template("$module_name}/vhost/vhost.conf.erb"),
+    content => template("${module_name}/vhost/vhost.conf.erb"),
     mode    => $mode,
     owner   => $owner,
     group   => $group,
@@ -23,7 +23,7 @@ define nginx::vhost(
   }
 
   file { $vhost_docroot: 
-    ensure => directoty,
+    ensure => directory,
     recurse => true,
     mode    => '0755',
     owner   => $owner,
